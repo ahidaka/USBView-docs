@@ -4,6 +4,8 @@
 
 [English version](README_en.md)
 
+Windows の USB ハードウェアがらみのトラブルを見極める手段として、開発者向けのツールとして有名な USBView があります。誰でも容易に使えるツールですが、インストール手順が少しだけ面倒なので紹介します。
+
 ## インストールの概要
 
 次の「[Windows のユニバーサル シリアル バス ビューアー](https://learn.microsoft.com/ja-jp/windows-hardware/drivers/debugger/usbview)」手順を実行します。

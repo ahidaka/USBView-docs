@@ -4,13 +4,15 @@ How to use and Install **Universal Serial Bus Viewer in Windows**.
 
 [Japanese version](README.md)
 
+USBView is a well-known tool for developers as a means of identifying problems related to USB hardware in Windows. It is a tool that anyone can use easily, but the installation procedure is a little complicated, so I will introduce it here.
+
+## Installation overview
+
 Please refer to the link below for details on what is written [here](https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview).
 
 [Universal Serial Bus Viewer in Windows](https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview)
 
 https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview
-
-## How to install USBView
 
 1. Download and install the Windows SDK.
 
@@ -18,67 +20,72 @@ https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview
 
 4. By default, on a x64 PC the SDK will install USBView to the following directory.
 
-  **C:\Program Files (x86)\Windows Kits\10\Debuggers\x64**
+    **C:\Program Files (x86)\Windows Kits\10\Debuggers\x64**
 
-  Open the kits debugger directory for the processor type you're running, and then select usbview.exe to start the utility.
+ 4. Open the kits debugger directory for the processor type you're running, and then select usbview.exe to start the utility.
 
-To configure the installation, select only the Debugging Tools for Windows box and deselect all other boxes.
+## Windows SDK download
+
+Please download the Windows SDK installer winsdksetup.exe from the SDK page below and launch it to begin the installation.
+
+https://developer.microsoft.com/windows/downloads/windows-sdk/ 
+
+![Launching the Windows SDK installer](sdk-e0.png)
+
+### Launching the Windows SDK installer
+
+When you start the downloaded winsdksetup.exe, the following screen will be displayed, so just click "Next" to start the installation. Select "Download the Windows Software Development kit - ..." to download the offline installer to another PC, etc.
+
+![Launching the Windows SDK installer](sdk-e1.png)
+
+### SDK installation item selection menu
+
+The following is the panel for selecting features to install. By default, all features are enabled.
+
+![SDK installation item selection menu](sdk-e2.png)
+
+### Select to leave only **Debugging Tools for Windows**
+
+To configure the installation, Leave only "Debugging Tools for Windows", the second one from the top, deselect the others and click "Install". You can select and leave other items, but they may not be available unless Visual Studio is installed.
+
+![Select to leave only Debugging Tools for Windows](sdk-e3.png)
+
+### Installation completed
+
+After a while, the installation will be completed and a "Welcome" message will be displayed. Close it with the "Close" button.
+
+![Installation completed](sdk-e4.png)
+
+### Check the installation directory
 
 When installing from this SDK, USBView for x64 PCs is installed by default in the following directory:
 
-C:\Program Files (x86)\Windows Kits\10\Debuggers\x64
-
+**C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\usbview.exe**
 
 Open the kits debugger directory for the processor type you are running and select usbview.exe to launch the utility.
 
-USBView source code
-
-USBView is also available in the Windows Driver Samples repository on GitHub.
-
-
-実行中のプロセッサの種類の kits デバッガー ディレクトリを開き、[usbview.exe] を選択してユーティリティを起動します。
-
-USBView ソース コード
-
-USBView は、GitHub の Windows ドライバー サンプル リポジトリでも入手できます。
-
-##
-
-https://developer.microsoft.com/windows/downloads/windows-sdk/ のページでWindows SDK インストーラー winsdksetup.exe をダウンロードして起動し、インストールを開始します。
-
-![Windows SDK インストール](sdk-e0.png)
-
-winsdksetup.exe を起動すると次の画面が表示されるので、そのまま「Next」でインストールを開始します。下の選択は別のPC等へのオフラインインストーラをダウンロードする場合に選択します。
-
-![Windows SDK インストール](sdk-e1.png)
-
-インストール機能の選択画面です。デフォルトでは全ての機能が有効です。
-
-![Windows SDK インストール](sdk-e2.png)
-
-上から2番目の「Debugging Tools for Windows」だけを残して、他のチャックを外して「インストール」をクリックします。
-
-![Windows SDK インストール](sdk-e3.png)
-
-しばらく経つとインストールが完了して「Welcome」メッセージが表示されます。「Close」ボタンで閉じます。
-
-![Windows SDK インストール](sdk-e4.png)
-
-この手順でインストールした場合、x64版実行モジュールのインストール先は、
-C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\usbview.exe となります。
-
 ![Windows SDK インストール](sdk-e5.png)
 
-そのまま usbview.exe を起動した場合の表示例です。
-この様に 問題があるUSBデバイスが接続している場合は、黄色「!」マークで強調表示されます。
+### Start USBView
 
-![Windows SDK インストール](sdk-e6.png)
+This is an example of what is displayed when usbview.exe is started.
+Each USB device is arranged in a tree structure via the USB Hub like this.
+To obtain information about the target device, check the correspondence with the connection point and physical socket by plugging and unplugging the USB memory that serves as a landmark.
 
-正常なUSBデバイスをクリックして表示させると、デバイス情報、デバイスディスクリプターとエンドポイントの情報などを確認することが可能です。
+If you click on a normal USB device to display it, you can check the device information, device descriptor and endpoint information, etc.
 
-![Windows SDK インストール](sdk-e7.png)
+![Start USBView](sdk-e7.png)
 
-USBの各デバイスはこの様にUSB Hub を介してツリー構造で配置されます。
-目的のデバイスの情報は目印となるUSBメモリーを抜き差しする等して接続点、物理ソケットとの対応を確認します。
+### Target device with problem
 
-以上。
+If a problematic USB target device is connected, it will be highlighted with a yellow "!" mark, as shown below.
+
+![Target device with problem](sdk-e6.png)
+
+### USBView source code
+
+USBView source code is available in the Windows Driver Samples repository on GitHub.
+
+https://github.com/microsoft/Windows-driver-samples/tree/main/usb/usbview
+
+End of document.
