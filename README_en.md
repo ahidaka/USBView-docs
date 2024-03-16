@@ -1,20 +1,40 @@
 # USBView-docs
 
-**Windows のユニバーサル シリアル バス ビューアー** のインストール方法と使い方
+How to use and Install **Universal Serial Bus Viewer in Windows**. 
 
 [Japanese version](README.md)
 
-Please refer to the link below for details on what is written here.
+Please refer to the link below for details on what is written [here](https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview).
 
-https://learn.microsoft.com/ja-jp/windows-hardware/drivers/debugger/usbview
+[Universal Serial Bus Viewer in Windows](https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview)
 
-##
+https://learn.microsoft.com/windows-hardware/drivers/debugger/usbview
 
-インストール時に、 [Debugging Tools for Windows] ボックスのみを選択して、それ以外のすべてのボックスの選択を解除します。
+## How to install USBView
 
-SDK により、USBView は、x64 PC では既定で次のディレクトリにインストールされます。
+1. Download and install the Windows SDK.
+
+2. During the installation, select only the Debugging Tools for Windows box and clear all other boxes.
+
+4. By default, on a x64 PC the SDK will install USBView to the following directory.
+
+  **C:\Program Files (x86)\Windows Kits\10\Debuggers\x64**
+
+  Open the kits debugger directory for the processor type you're running, and then select usbview.exe to start the utility.
+
+To configure the installation, select only the Debugging Tools for Windows box and deselect all other boxes.
+
+When installing from this SDK, USBView for x64 PCs is installed by default in the following directory:
 
 C:\Program Files (x86)\Windows Kits\10\Debuggers\x64
+
+
+Open the kits debugger directory for the processor type you are running and select usbview.exe to launch the utility.
+
+USBView source code
+
+USBView is also available in the Windows Driver Samples repository on GitHub.
+
 
 実行中のプロセッサの種類の kits デバッガー ディレクトリを開き、[usbview.exe] を選択してユーティリティを起動します。
 
@@ -24,8 +44,7 @@ USBView は、GitHub の Windows ドライバー サンプル リポジトリで
 
 ##
 
-
-https://developer.microsoft.com/ja-jp/windows/downloads/windows-sdk/ のページでWindows SDK インストーラー winsdksetup.exe をダウンロードして起動し、インストールを開始します。
+https://developer.microsoft.com/windows/downloads/windows-sdk/ のページでWindows SDK インストーラー winsdksetup.exe をダウンロードして起動し、インストールを開始します。
 
 ![Windows SDK インストール](sdk-e0.png)
 
